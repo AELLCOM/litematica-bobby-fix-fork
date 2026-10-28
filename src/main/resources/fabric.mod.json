@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "litematica_bobby_fix",
+  "version": "${version}",
+  "name": "Litematica Bobby Fix",
+  "description": "Lets Litematica render schematics and count materials in chunks loaded by Bobby beyond the server view distance. Requires Bobby.",
+  "authors": [
+    "Aell_",
+    "tvinch_"
+  ],
+  "contact": {
+    "discord": "https://discord.gg/jTU2yawThv"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "client",
+  "entrypoints": {},
+  "mixins": [
+    "litematica-bobby-fix.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "~26.3",
+    "fabricloader": ">=0.19.5",
+    "litematica": "*",
+    "bobby": ">=5.2.16"
+  }
+}

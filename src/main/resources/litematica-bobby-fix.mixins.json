@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "dev.litematica_bobby_fix.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "MixinClientChunkManagerBobbyCompat"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
