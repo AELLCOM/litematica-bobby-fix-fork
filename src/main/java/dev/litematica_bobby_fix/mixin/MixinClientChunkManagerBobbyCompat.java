@@ -13,18 +13,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = ClientChunkCache.class, priority = 1500)
 public abstract class MixinClientChunkManagerBobbyCompat {
-    @Inject(method = "bobby_onFakeChunkAdded", at = @At("HEAD"), require = 0)
+    // Методы bobby_* добавляет в ClientChunkCache миксин Bobby — у них нет имён Mojang, перемаппинг не нужен.
+    @Inject(method = "bobby_onFakeChunkAdded", at = @At("HEAD"), require = 0, remap = false)
     private void litematicaBobbyFix_onFakeChunkAdded(int x, int z, CallbackInfo ci) {
         // Когда сервер выгружает чанк, Bobby подставляет фейковый прямо внутри ClientChunkCache.drop(),
         // то есть ещё до того, как Litematica на выходе из handleForgetLevelChunk выгрузит свой чанк
-        // схемы. Пересборку чанка Litematica 0.28+ отдаёт в отдельный поток, и он может успеть загрузить
+        // схемы. Пересборку чанка Litematica 0.28+ (26.x) отдаёт в отдельный поток, и он может успеть загрузить
         // чанк схемы раньше этой выгрузки — тогда схема в фейковом чанке пропадает до следующего
         // настоящего чанка (случайно, примерно через раз). Поэтому загрузка откладывается в очередь
         // клиента и выполняется после текущего обработчика пакета.
         Minecraft.getInstance().schedule(() -> litematicaBobbyFix_loadSchematicChunk(x, z));
     }
 
-    @Inject(method = "bobby_onFakeChunkRemoved", at = @At("HEAD"), require = 0)
+    @Inject(method = "bobby_onFakeChunkRemoved", at = @At("HEAD"), require = 0, remap = false)
     private void litematicaBobbyFix_onFakeChunkRemoved(int x, int z, boolean willBeReplaced, CallbackInfo ci) {
         if (willBeReplaced) {
             return;

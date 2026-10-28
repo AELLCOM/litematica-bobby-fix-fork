@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'fabric-loom' version "${loom_version}"
 }
 
 version = project.mod_version
@@ -15,14 +15,13 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+    // 1.21.11 ещё обфусцирована: имена Mojang через маппинги, моды — через mod*-конфигурации (перемаппинг)
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    compileOnly files('libs/malilib-fabric-26.3-0.30.2.jar')
-    compileOnly files('libs/litematica-fabric-26.3-0.29.1.jar')
-
-    // Bobby не вшивается (с 1.1.8): нужен официальный Bobby 5.2.16+mc26.3 в mods. Классы Bobby в коде не
-    // используются — миксин цепляется к его методам bobby_onFakeChunkAdded/Removed по имени.
+    modCompileOnly files('libs/malilib-fabric-1.21.11-0.27.20.jar')
+    modCompileOnly files('libs/litematica-fabric-1.21.11-0.26.16.jar')
 }
 
 processResources {
@@ -33,10 +32,10 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 25
+    it.options.release = 21
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }

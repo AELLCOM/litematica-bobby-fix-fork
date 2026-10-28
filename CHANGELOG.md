@@ -7,13 +7,16 @@ The original Russian notes are in [CHANGELOG.ru.md](CHANGELOG.ru.md).
 
 Minecraft 26.3, 26.2, 1.21.11
 
-- fix — chunks flickered while flying or walking with Sodium, and terrain behind unexplored gaps vanished whenever you stopped. Sodium's visibility search cannot pass through chunk columns that neither the server nor the cache has, so everything behind such a gap was reachable only by detours that changed at every chunk-section border — and with the camera right above a gap the search did not start at all, so the whole view disappeared the moment you stood still. Such gaps are now reported to Sodium as empty air and the search passes straight through them.
-- fix — the set of rendered chunks differed between a still and a moving camera (Sodium switches to a stricter, ray-tested visibility tree a few frames after you stop). Rendering now always uses the regular tree, so stopping and starting no longer toggles distant chunks.
-- Both behaviours are options (on by default) and can be switched in-game for comparison: `/bobby holes on|off`, `/bobby culling stable|stock`.
+#### Fixed
+- fix — **the schematic vanished in Bobby chunks about every other time.** When the server unloads a chunk, Bobby swaps in its cached chunk before Litematica unloads its own schematic chunk, and Litematica's background rebuild could load the schematic chunk too early — it then stayed missing until the next real chunk arrived (nothing rendered there, Material HUD lost banner patterns in those chunks). The load now waits until the server packet is fully handled and checks that the cached chunk is still there.
+
+Same number as 1.1.7 for 26.3: versions 1.1.4–1.1.7 only changed the Bobby copy bundled into the 26.3 build. On 1.21.11 Bobby is not bundled — install the official Bobby.
+
+**RU.** fix — схема в чанках Bobby пропадала примерно через раз. Загрузка чанка схемы теперь ждёт конца обработки пакета сервера. Bobby в сборку 1.21.11 не вшит — нужен официальный Bobby.
 
 #### 📦 You need
 
-Minecraft 26.3 · Fabric Loader · Litematica · Java 25
+Minecraft 1.21.11 · Fabric Loader · Bobby · Litematica · Java 21
 
 ## 1.1.6 — 2026-10-01
 

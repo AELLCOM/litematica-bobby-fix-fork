@@ -4,12 +4,12 @@ Lets Litematica render schematics and count materials in chunks loaded by Bobby 
 
 [Modrinth](https://modrinth.com/mod/litematica-bobby-fix-fork) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/litematica-bobby-fix-fork) · [Discord](https://discord.gg/jTU2yawThv)
 
-This branch (`main`) is the source of **1.1.8+26.3** for **Minecraft 26.3** (Fabric).
+This branch (`mc/1.21.11`) is the source of **1.1.7+1.21.11** for **Minecraft 1.21.11** (Fabric).
 Branches: `main` (26.3), `mc/26.2` (26.2), `mc/1.21.11` (1.21.11). Release notes: [CHANGELOG.md](CHANGELOG.md).
 
 ## Building
 
-You need JDK 25+ (Gradle comes with the wrapper).
+You need JDK 21+ (Gradle comes with the wrapper).
 
 ```sh
 ./libs/fetch-libs.sh   # malilib, litematica from Modrinth, SHA-1 checked
