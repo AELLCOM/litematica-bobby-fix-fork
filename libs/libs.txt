@@ -1,2 +1,2 @@
-malilib-fabric-26.3-0.30.2.jar https://cdn.modrinth.com/data/GcWjdA9I/versions/JX9bESec/malilib-fabric-26.3-0.30.2.jar 832a00c0d6417d7f195fbe1b1c643bbd4893e64a
-litematica-fabric-26.3-0.29.1.jar https://cdn.modrinth.com/data/bEpr0Arc/versions/ZqV316KY/litematica-fabric-26.3-0.29.1.jar 2c0e37ef450b7fcea61e0fce482f134d1fe5a9c6
+malilib-fabric-26.2-0.29.3.jar https://cdn.modrinth.com/data/GcWjdA9I/versions/xKxhjDJ2/malilib-fabric-26.2-0.29.3.jar c5a86e2c868d8918265361694eebbb73eee6c861
+litematica-fabric-26.2-0.28.4.jar https://cdn.modrinth.com/data/bEpr0Arc/versions/jzraAo7b/litematica-fabric-26.2-0.28.4.jar a7f32029d38325b451d27072997f14aa2c3d3286

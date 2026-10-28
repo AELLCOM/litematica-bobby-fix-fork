@@ -3,7 +3,7 @@
   "id": "litematica_bobby_fix",
   "version": "${version}",
   "name": "Litematica Bobby Fix",
-  "description": "Lets Litematica render schematics and count materials in chunks loaded by Bobby beyond the server view distance. Requires Bobby.",
+  "description": "A fork of the Litematica Bobby Fix mod by tvinch_, ported to Minecraft 26.2. Fixes compatibility between Litematica and Bobby: schematic chunks now render and material list works correctly for Bobby-cached chunks beyond server view distance.",
   "authors": [
     "Aell_",
     "tvinch_"
@@ -19,9 +19,9 @@
     "litematica-bobby-fix.mixins.json"
   ],
   "depends": {
-    "minecraft": "~26.3",
-    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.2",
+    "fabricloader": ">=0.16",
     "litematica": "*",
-    "bobby": ">=5.2.16"
+    "bobby": "*"
   }
 }

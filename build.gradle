@@ -18,11 +18,8 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    compileOnly files('libs/malilib-fabric-26.3-0.30.2.jar')
-    compileOnly files('libs/litematica-fabric-26.3-0.29.1.jar')
-
-    // Bobby не вшивается (с 1.1.8): нужен официальный Bobby 5.2.16+mc26.3 в mods. Классы Bobby в коде не
-    // используются — миксин цепляется к его методам bobby_onFakeChunkAdded/Removed по имени.
+    compileOnly files('libs/malilib-fabric-26.2-0.29.3.jar')
+    compileOnly files('libs/litematica-fabric-26.2-0.28.4.jar')
 }
 
 processResources {
